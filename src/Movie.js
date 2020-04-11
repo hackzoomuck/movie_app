@@ -2,16 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Movie.css"
 
-function Movie({year, title, summary, poster}){
+function Movie({ year, title, summary, poster, genres }) {
     return (
-    <div class="movie">
-        <img src={poster} alt={title} title={title}/>
-        <div class="movie__data">
-            <h3 class="moive__title" style={{backgroundColor: "red"}}>{title}</h3>
-            <h5 class="movie__year">{year}</h5>
-            <p class="movie__summary">{summary}</p>
+    <div className="movie">
+        <img src={poster} alt={title} title={title} />
+        <div className="movie__data">
+            <h3 className="moive__title">{title}</h3>
+            <h5 className="movie__year">{year}</h5>
+            <p className="movie__summary">{summary}</p>
+            <ul className="genres">
+                {genres.map((genre, index) => (
+                <li className="genres__genre">
+                    {index}
+                    {genre}
+                </li>
+                ))}
+            </ul>
         </div>
-        <hr />
     </div>
     );
 }
